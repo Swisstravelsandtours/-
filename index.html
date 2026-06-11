@@ -4,83 +4,98 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Swiss Travel & Tours — Muscat, Oman</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --crimson: #B5122C; --crimson2: #8C0C1F; --green: #008542; --green2: #005C2D; --cream: #FAF7F2; --ink: #16120E; --mist: #8A8480; --white: #FFFFFF; --light: #F3EEE8; }
-    html { scroll-behavior: smooth; }
+    :root { --crimson: #B5122C; --green: #008542; --cream: #FAF7F2; --ink: #16120E; --light: #F3EEE8; }
     body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--ink); overflow-x: hidden; }
 
-    /* ── DESTINATION TILES STYLING ── */
+    /* ── ANIMATIONS & NAV ── */
+    #progressBar { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, var(--crimson), var(--green)); width: 0%; z-index: 9999; }
+    nav { position: fixed; top: 0; width: 100%; padding: 1.8rem 5rem; z-index: 100; transition: all 0.4s; display: flex; justify-content: space-between; align-items: center; }
+    nav.scrolled { background: rgba(22, 18, 14, 0.95); padding: 1rem 5rem; }
+    .nav-logo-img { height: 60px; }
+    
+    /* ── MARQUEE ── */
+    .marquee { background: var(--crimson); color: white; padding: 15px 0; overflow: hidden; white-space: nowrap; }
+    .marquee-track { display: inline-block; animation: scroll 20s linear infinite; }
+    @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* ── DESTINATION TILES ── */
     .dest-section { padding: 7rem 5rem; background: var(--light); }
-    .dest-header { margin-bottom: 3rem; text-align: center; }
-    .section-label { font-size: 0.65rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--crimson); margin-bottom: 0.75rem; }
-    .section-title { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--ink); margin-bottom: 1rem; }
-    .dest-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; max-width: 1200px; margin: 0 auto; }
-    .dest-card { border-radius: 12px; overflow: hidden; min-height: 350px; display: flex; align-items: flex-end; transition: transform 0.3s; cursor: pointer; background-size: cover !important; background-position: center !important; }
+    .dest-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; }
+    .dest-card { border-radius: 12px; overflow: hidden; height: 350px; display: flex; align-items: flex-end; cursor: pointer; transition: 0.3s; background-size: cover !important; background-position: center !important; }
     .dest-card:hover { transform: translateY(-10px); }
     .dest-content { padding: 25px; color: white; background: linear-gradient(transparent, rgba(0,0,0,0.85)); width: 100%; }
-    .dest-content h3 { font-size: 1.5rem; margin-bottom: 10px; }
     .book-btn { display: inline-block; padding: 8px 16px; background: var(--crimson); color: white; text-decoration: none; border-radius: 4px; font-weight: 600; margin-top: 10px; font-size: 0.8rem; }
 
-    /* --- Existing Styles (Keep your original Nav, Hero, Marquee, Footer etc below this) --- */
-    /* (I have included the rest of your original code structure below) */
-    .progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, var(--crimson), var(--green)); width: 0%; z-index: 9999; }
-    /* ... (Include all your original CSS here) ... */
+    /* ── STATS & WHY US ── */
+    .stats-section { padding: 5rem; background: var(--ink); color: white; display: flex; justify-content: space-around; text-align: center; }
+    .why-us { padding: 5rem; text-align: center; }
+    footer { background: #000; color: #fff; padding: 3rem; text-align: center; }
   </style>
 </head>
 <body>
 
-<!-- (Include your Nav, Hero, Marquee HTML here) -->
+<div id="progressBar"></div>
 
-<!-- ── NEW DESTINATIONS SECTION ── -->
+<nav id="nav">
+  <img src="1000038711.png" class="nav-logo-img">
+  <ul style="list-style: none; display: flex; gap: 20px;">
+    <li><a href="#destinations" style="color:white; text-decoration:none;">Destinations</a></li>
+    <li><a href="#contact" style="color:white; text-decoration:none;">Contact</a></li>
+  </ul>
+</nav>
+
+<section style="height: 100vh; background: #333; display: flex; align-items: center; justify-content: center; color: white;">
+  <h1>Explore Oman</h1>
+</section>
+
+<div class="marquee"><div class="marquee-track">✈ Flight Booking ✦ 🚢 Cruises ✦ 🏨 Hotel Booking ✦ 🏜️ Desert Safaris ✦ ✈ Flight Booking ✦ 🚢 Cruises ✦ 🏨 Hotel Booking ✦ 🏜️ Desert Safaris</div></div>
+
 <section class="dest-section" id="destinations">
-  <div class="dest-header">
-    <p class="section-label">Where We Take You</p>
-    <h2 class="section-title">Oman's Finest Spots</h2>
-  </div>
   <div class="dest-grid">
     <div class="dest-card" style="background: url('muscat.jpg');">
-      <div class="dest-content">
-        <h3>Muscat City Tour</h3>
-        <p>Explore the Grand Mosque & Muttrah Corniche.</p>
-        <a href="https://wa.me/96894523838" class="book-btn">Book Now</a>
-      </div>
+      <div class="dest-content"><h3>Muscat City</h3><a href="https://wa.me/96894523838" class="book-btn">Book Now</a></div>
     </div>
     <div class="dest-card" style="background: url('wahiba.jpg');">
-      <div class="dest-content">
-        <h3>Wahiba Sands</h3>
-        <p>Experience the golden sea of dunes.</p>
-        <a href="https://wa.me/96894523838" class="book-btn">Book Now</a>
-      </div>
+      <div class="dest-content"><h3>Wahiba Sands</h3><a href="https://wa.me/96894523838" class="book-btn">Book Now</a></div>
     </div>
     <div class="dest-card" style="background: url('nizwa.jpg');">
-      <div class="dest-content">
-        <h3>Nizwa Fort</h3>
-        <p>Step back in time at Oman's ancient capital.</p>
-        <a href="https://wa.me/96894523838" class="book-btn">Book Now</a>
-      </div>
+      <div class="dest-content"><h3>Nizwa Fort</h3><a href="https://wa.me/96894523838" class="book-btn">Book Now</a></div>
     </div>
     <div class="dest-card" style="background: url('jebel.jpg');">
-      <div class="dest-content">
-        <h3>Jebel Shams</h3>
-        <p>Stand on the highest peak in Oman.</p>
-        <a href="https://wa.me/96894523838" class="book-btn">Book Now</a>
-      </div>
+      <div class="dest-content"><h3>Jebel Shams</h3><a href="https://wa.me/96894523838" class="book-btn">Book Now</a></div>
     </div>
     <div class="dest-card" style="background: url('salalah.jpg');">
-      <div class="dest-content">
-        <h3>Salalah</h3>
-        <p>Escape to a green paradise.</p>
-        <a href="https://wa.me/96894523838" class="book-btn">Book Now</a>
-      </div>
+      <div class="dest-content"><h3>Salalah</h3><a href="https://wa.me/96894523838" class="book-btn">Book Now</a></div>
     </div>
   </div>
 </section>
 
-<!-- (Include your Stats, Why Us, Contact, Footer, and Scripts here) -->
+<section class="why-us">
+  <h2>Why Choose Us?</h2>
+  <p>Providing the best travel experiences across Oman for over a decade.</p>
+</section>
+
+<section class="stats-section">
+  <div><h3>15+</h3><p>Years Experience</p></div>
+  <div><h3>5k+</h3><p>Happy Travelers</p></div>
+  <div><h3>100%</h3><p>Satisfaction</p></div>
+</section>
+
+<footer id="contact">
+  <p>© 2026 Swiss Travel & Tours. Contact: +968 9452 3838</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const scroll = window.scrollY;
+    const height = document.body.scrollHeight - window.innerHeight;
+    document.getElementById('progressBar').style.width = (scroll / height) * 100 + '%';
+    document.getElementById('nav').classList.toggle('scrolled', scroll > 50);
+  });
+</script>
 
 </body>
 </html>
